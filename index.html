@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Advent of Code — Leaderboards</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- main stylesheet (relative to this file) -->
+  <link id="site-style" rel="stylesheet" href="css/style.css">
+  <!-- high-contrast stylesheet (disabled by default) -->
+  <link id="hc-style" rel="stylesheet" href="css/highcontrast.css" disabled>
+  <style>
+    /* small local layout tweaks for index page */
+    body { padding: 2rem; }
+    nav.years ul { list-style: none; padding: 0; margin: 0; }
+    nav.years li { margin: .25em 0; }
+    .controls { margin-top: .75em; margin-bottom: 1.25em; }
+    .controls button { cursor: pointer; background: transparent; border: 1px solid #333; padding: .25em .5em; color: inherit; }
+    footer { margin-top: 2.5em; opacity: .6; font-size: .9em; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a>Advent of Code — Leaderboards</a></h1>
+  </header>
+
+  <main>
+    <section>
+      <p>Choose a year to view that leaderboard:</p>
+      <nav class="years" aria-label="Leaderboard years">
+        <ul>
+          <!-- add or remove year entries as you add folders -->
+          <li><a href="2025/index.html">2025</a></li>
+          <li><a href="2024/index.html">2024</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <section>
+      <h2>About</h2>
+      <p class="wrap">This site hosts AoC leaderboards for our group. Each year is in its own folder. Use the 'Open latest' button to jump to the most recent leaderboard.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Hosted via GitHub Pages • <a href="https://github.com/Programming-Club-Org/Advent-of-Code-Leaderboards-IITM">source</a></p>
+  </footer>
+
+  <script>
+    // Toggle high-contrast CSS: simply enable/disable link[disabled]
+    (function(){
+      const hcBtn = document.getElementById('toggle-hc');
+      const hcLink = document.getElementById('hc-style');
+      hcBtn.addEventListener('click', () => {
+        const enabled = !hcLink.disabled;
+        hcLink.disabled = enabled; // flip
+        hcBtn.textContent = enabled ? 'Enable high contrast' : 'Disable high contrast';
+      });
+      // Open latest (edit 'latestPath' to match newest folder)
+      document.getElementById('goto-latest').addEventListener('click', () => {
+        // EDIT this to the folder you want as "latest"
+        const latestPath = '2025/';
+        window.location.href = latestPath;
+      });
+      // Optional: auto-redirect if you prefer immediate redirect. Commented out by default.
+      // window.location = '2025/'; // uncomment to always redirect from root to latest year
+    })();
+  </script>
+</body>
+</html>
